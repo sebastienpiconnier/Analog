@@ -22,6 +22,46 @@
         $("#btn_darkRainbow").click(function () {
             csInterface.evalScript("darkRainbow('" + myPanelPath + "');");
         });
+        
+        $("#btn_marshall").click(function () {
+            csInterface.evalScript("marshall('" + myPanelPath + "');");
+        });
+        
+        $("#btn_oldPola").click(function () {
+            csInterface.evalScript("oldPola('" + myPanelPath + "');");
+        });
+        
+        $("#btn_soLovely").click(function () {
+            csInterface.evalScript("soLovely('" + myPanelPath + "');");
+        });
+        
+        $("#btn_yellowishSky").click(function () {
+            csInterface.evalScript("yellowishSky('" + myPanelPath + "');");
+        });
+        
+        $("#btn_pastel").click(function () {
+            csInterface.evalScript("pastel('" + myPanelPath + "');");
+        });
+                
+        $("#btn_blueRay").click(function () {
+            csInterface.evalScript("blueRay('" + myPanelPath + "');");
+        });
+        
+        $("#btn_blueJeansDay").click(function () {
+            csInterface.evalScript("blueJeansDay('" + myPanelPath + "');");
+        });
+        
+        $("#btn_greeny").click(function () {
+            csInterface.evalScript("greeny('" + myPanelPath + "');");
+        });
+
+        $("#btn_dirtyBlackWhite").click(function () {
+            csInterface.evalScript("dirtyBlackWhite('" + myPanelPath + "');");
+        });
+        
+        $("#btn_lightLeak").click(function () {
+            csInterface.evalScript("lightLeak('" + myPanelPath + "');");
+        });
     }
         
     init();
