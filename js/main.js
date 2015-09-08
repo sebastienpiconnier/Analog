@@ -62,6 +62,30 @@
         $("#btn_lightLeak").click(function () {
             csInterface.evalScript("lightLeak('" + myPanelPath + "');");
         });
+        
+        $("#btn_changeFrame").click(function () {
+            csInterface.evalScript("changeFrame('" + myPanelPath + "');");
+        });
+        
+        $("#btn_changeTexture").click(function () {
+            csInterface.evalScript("changeTexture('" + myPanelPath + "');");
+        });
+        
+        $("#btn_changeVignetting").click(function () {
+            csInterface.evalScript("changeVignetting('" + myPanelPath + "');");
+        });
+        
+        $("#btn_changeFilter").click(function () {
+            csInterface.evalScript("changeFilter('" + myPanelPath + "');");
+        });
+        
+        $("#btn_blackWhite").click(function () {
+            csInterface.evalScript('blackWhite()');
+        });
+        
+        $("#btn_newSnapshot").click(function () {
+            csInterface.evalScript('newSnapshot()');
+        });
     }
         
     init();

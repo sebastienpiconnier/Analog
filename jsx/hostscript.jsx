@@ -524,6 +524,7 @@ function undo(){
 var docRef = app.activeDocument;docRef.activeHistoryState = docRef.historyStates[0];
     
 }
+//===========================================
 
 function darkRainbow(inPanelLocation){
     //  Paramétrage de Adobe(r) Photoshop(r) CS5 tpour utiliser l'unité en pixels
@@ -6314,4 +6315,409 @@ executeAction( id3, desc2, DialogModes.NO );
 // Fin du script
 // =======================================================
     
+}
+
+//===========================================
+
+function changeFrame(inPanelLocation){
+    
+//Création d'une référence au document actif
+var docRef = app.activeDocument;
+
+// Ouverture d'une bordure
+var strEdgeFXFolder = new Folder(inPanelLocation + "/assets/frames/"); 
+
+var edgeFXFile = strEdgeFXFolder.openDlg("Select a frame","JPEG/PNG:*JPG;*.JPEG;*.JPE;*.PNG");
+open (edgeFXFile);
+
+//Création d'une référence au document actif
+var edgeDoc = app.activeDocument;
+
+//Transformation du fond en calque nommé "Original picture"
+edgeDoc.activeLayer.isBackgroundLayer = false;
+edgeDoc.activeLayer.name = "Temp";
+		
+// Redimenssionnement du calque "Temp"  à la taille du document de travail
+edgeDoc.resizeImage (docRef.width, docRef.height);
+
+// Copie du calque "Temp"
+edgeDoc.activeLayer.copy();
+
+// Fermeture du calque "Temp" sans sauvegarde
+edgeDoc.close(SaveOptions.DONOTSAVECHANGES);
+
+//selectionne le calque "Edge" 
+// =======================================================
+var idslct = charIDToTypeID( "slct" );
+    var desc30 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref24 = new ActionReference();
+        var idLyr = charIDToTypeID( "Lyr " );
+        ref24.putName( idLyr, "Frame" );
+    desc30.putReference( idnull, ref24 );
+    var idMkVs = charIDToTypeID( "MkVs" );
+    desc30.putBoolean( idMkVs, false );
+executeAction( idslct, desc30, DialogModes.NO );
+
+//on vide le calque
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc188 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref96 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref96.putProperty( idChnl, idfsel );
+    desc188.putReference( idnull, ref96 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idAl = charIDToTypeID( "Al  " );
+    desc188.putEnumerated( idT, idOrdn, idAl );
+executeAction( idsetd, desc188, DialogModes.NO );
+
+// =======================================================
+var idDlt = charIDToTypeID( "Dlt " );
+executeAction( idDlt, undefined, DialogModes.NO );
+
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc189 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref97 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref97.putProperty( idChnl, idfsel );
+    desc189.putReference( idnull, ref97 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idNone = charIDToTypeID( "None" );
+    desc189.putEnumerated( idT, idOrdn, idNone );
+executeAction( idsetd, desc189, DialogModes.NO );
+
+// Colle le presse-papier dans le calque
+// =======================================================
+var idpast = charIDToTypeID( "past" );
+    var desc31 = new ActionDescriptor();
+    var idAntA = charIDToTypeID( "AntA" );
+    var idAnnt = charIDToTypeID( "Annt" );
+    var idAnno = charIDToTypeID( "Anno" );
+    desc31.putEnumerated( idAntA, idAnnt, idAnno );
+executeAction( idpast, desc31, DialogModes.NO );
+    
+}
+
+function changeTexture(inPanelLocation){
+    
+//Création d'une référence au document actif
+var docRef = app.activeDocument;
+
+// Ouverture d'une texture
+var strEdgeFXFolder =new Folder(inPanelLocation + "/assets/textures/"); 
+
+var edgeFXFile = strEdgeFXFolder .openDlg("Select a texture","JPEG/PNG:*JPG;*.JPEG;*.JPE;*.PNG");
+open (edgeFXFile);
+
+//Création d'une référence au document actif
+var textureDoc = app.activeDocument;
+
+//Transformation du fond en calque nommé "Temp"
+textureDoc.activeLayer.isBackgroundLayer = false;
+textureDoc.activeLayer.name = "Layer mask";
+		
+// Redimenssionnement du calque "Temp"  à la taille du document de travail
+textureDoc.resizeImage (docRef.width, docRef.height);
+
+// Copie du calque "Temp"
+textureDoc.activeLayer.copy();
+
+// Fermeture du calque "Temp" sans sauvegarde
+textureDoc.close(SaveOptions.DONOTSAVECHANGES);
+
+//selectionne le calque "texture" 
+// =======================================================
+var idslct = charIDToTypeID( "slct" );
+    var desc30 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref24 = new ActionReference();
+        var idLyr = charIDToTypeID( "Lyr " );
+        ref24.putName( idLyr, "Texture" );
+    desc30.putReference( idnull, ref24 );
+    var idMkVs = charIDToTypeID( "MkVs" );
+    desc30.putBoolean( idMkVs, false );
+executeAction( idslct, desc30, DialogModes.NO );
+
+//on vide le calque
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc188 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref96 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref96.putProperty( idChnl, idfsel );
+    desc188.putReference( idnull, ref96 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idAl = charIDToTypeID( "Al  " );
+    desc188.putEnumerated( idT, idOrdn, idAl );
+executeAction( idsetd, desc188, DialogModes.NO );
+
+// =======================================================
+var idDlt = charIDToTypeID( "Dlt " );
+executeAction( idDlt, undefined, DialogModes.NO );
+
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc189 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref97 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref97.putProperty( idChnl, idfsel );
+    desc189.putReference( idnull, ref97 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idNone = charIDToTypeID( "None" );
+    desc189.putEnumerated( idT, idOrdn, idNone );
+executeAction( idsetd, desc189, DialogModes.NO );
+
+// Colle le presse-papier dans le calque
+// =======================================================
+var idpast = charIDToTypeID( "past" );
+    var desc31 = new ActionDescriptor();
+    var idAntA = charIDToTypeID( "AntA" );
+    var idAnnt = charIDToTypeID( "Annt" );
+    var idAnno = charIDToTypeID( "Anno" );
+    desc31.putEnumerated( idAntA, idAnnt, idAnno );
+executeAction( idpast, desc31, DialogModes.NO );
+}
+
+function changeVignetting(inPanelLocation){
+    //Création d'une référence au document actif
+var docRef = app.activeDocument;
+
+// Ouverture d'une vignette
+var strEdgeFXFolder = new Folder(inPanelLocation + "/assets/vignettes/"); 
+
+var edgeFXFile = strEdgeFXFolder .openDlg("Select a vignette","JPEG/PNG:*JPG;*.JPEG;*.JPE;*.PNG");
+open (edgeFXFile)
+
+//Création d'une référence au document actif
+var vignetteDoc = app.activeDocument;
+
+//Transformation du fond en calque nommé "Temp"
+vignetteDoc.activeLayer.isBackgroundLayer = false;
+vignetteDoc.activeLayer.name = "Temp";
+		
+// Redimenssionnement du calque "Temp"  à la taille du document de travail
+vignetteDoc.resizeImage (docRef.width, docRef.height);
+
+// Copie du calque "Temp"
+vignetteDoc.activeLayer.copy();
+
+// Fermeture du calque "Temp" sans sauvegarde
+vignetteDoc.close(SaveOptions.DONOTSAVECHANGES);
+
+
+// =======================================================
+//selectionne le calque "Vignette" 
+// =======================================================
+var idslct = charIDToTypeID( "slct" );
+    var desc30 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref24 = new ActionReference();
+        var idLyr = charIDToTypeID( "Lyr " );
+        ref24.putName( idLyr, "Vignette" );
+    desc30.putReference( idnull, ref24 );
+    var idMkVs = charIDToTypeID( "MkVs" );
+    desc30.putBoolean( idMkVs, false );
+executeAction( idslct, desc30, DialogModes.NO );
+
+// =======================================================
+//on vide le calque
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc188 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref96 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref96.putProperty( idChnl, idfsel );
+    desc188.putReference( idnull, ref96 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idAl = charIDToTypeID( "Al  " );
+    desc188.putEnumerated( idT, idOrdn, idAl );
+executeAction( idsetd, desc188, DialogModes.NO );
+
+// =======================================================
+var idDlt = charIDToTypeID( "Dlt " );
+executeAction( idDlt, undefined, DialogModes.NO );
+
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc189 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref97 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref97.putProperty( idChnl, idfsel );
+    desc189.putReference( idnull, ref97 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idNone = charIDToTypeID( "None" );
+    desc189.putEnumerated( idT, idOrdn, idNone );
+executeAction( idsetd, desc189, DialogModes.NO );
+
+// =======================================================
+// Colle le presse-papier dans le calque
+// =======================================================
+var idpast = charIDToTypeID( "past" );
+    var desc31 = new ActionDescriptor();
+    var idAntA = charIDToTypeID( "AntA" );
+    var idAnnt = charIDToTypeID( "Annt" );
+    var idAnno = charIDToTypeID( "Anno" );
+    desc31.putEnumerated( idAntA, idAnnt, idAnno );
+executeAction( idpast, desc31, DialogModes.NO );
+
+// =======================================================
+//Calque en mode "Overlay"
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc3 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref2 = new ActionReference();
+        var idLyr = charIDToTypeID( "Lyr " );
+        var idOrdn = charIDToTypeID( "Ordn" );
+        var idTrgt = charIDToTypeID( "Trgt" );
+        ref2.putEnumerated( idLyr, idOrdn, idTrgt );
+    desc3.putReference( idnull, ref2 );
+    var idT = charIDToTypeID( "T   " );
+        var desc4 = new ActionDescriptor();
+        var idMd = charIDToTypeID( "Md  " );
+        var idBlnM = charIDToTypeID( "BlnM" );
+        var idOvrl = charIDToTypeID( "Ovrl" );
+        desc4.putEnumerated( idMd, idBlnM, idOvrl );
+    var idLyr = charIDToTypeID( "Lyr " );
+    desc3.putObject( idT, idLyr, desc4 );
+executeAction( idsetd, desc3, DialogModes.NO );
+
+}
+
+function changeFilter(inPanelLocation){
+    //Création d'une référence au document actif
+var docRef = app.activeDocument;
+
+// Ouverture d'un filtre coloré
+var strEdgeFXFolder = new Folder(inPanelLocation + "/assets/filters/"); 
+
+var edgeFXFile = strEdgeFXFolder .openDlg("Select coloured filter","JPEG/PNG:*JPG;*.JPEG;*.JPE;*.PNG");
+open (edgeFXFile)
+
+//Création d'une référence au document actif
+var FilterDoc = app.activeDocument;
+
+//Transformation du fond en calque nommé "Temp"
+FilterDoc .activeLayer.isBackgroundLayer = false;
+FilterDoc .activeLayer.name = "Temp";
+		
+// Redimenssionnement du calque "Temp"  à la taille du document de travail
+FilterDoc .resizeImage (docRef.width, docRef.height);
+
+// Copie du calque "Temp"
+FilterDoc .activeLayer.copy();
+
+// Fermeture du calque "Temp" sans sauvegarde
+FilterDoc .close(SaveOptions.DONOTSAVECHANGES);
+
+//Séction du calque "Coloured filter" 
+// =======================================================
+// =======================================================
+var idslct = charIDToTypeID( "slct" );
+    var desc4 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref1 = new ActionReference();
+        var idLyr = charIDToTypeID( "Lyr " );
+        ref1.putName( idLyr, "Filter" );
+    desc4.putReference( idnull, ref1 );
+    var idMkVs = charIDToTypeID( "MkVs" );
+    desc4.putBoolean( idMkVs, false );
+executeAction( idslct, desc4, DialogModes.NO );
+
+//on vide le calque
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc188 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref96 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref96.putProperty( idChnl, idfsel );
+    desc188.putReference( idnull, ref96 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idAl = charIDToTypeID( "Al  " );
+    desc188.putEnumerated( idT, idOrdn, idAl );
+executeAction( idsetd, desc188, DialogModes.NO );
+
+// =======================================================
+var idDlt = charIDToTypeID( "Dlt " );
+executeAction( idDlt, undefined, DialogModes.NO );
+
+// =======================================================
+var idsetd = charIDToTypeID( "setd" );
+    var desc189 = new ActionDescriptor();
+    var idnull = charIDToTypeID( "null" );
+        var ref97 = new ActionReference();
+        var idChnl = charIDToTypeID( "Chnl" );
+        var idfsel = charIDToTypeID( "fsel" );
+        ref97.putProperty( idChnl, idfsel );
+    desc189.putReference( idnull, ref97 );
+    var idT = charIDToTypeID( "T   " );
+    var idOrdn = charIDToTypeID( "Ordn" );
+    var idNone = charIDToTypeID( "None" );
+    desc189.putEnumerated( idT, idOrdn, idNone );
+executeAction( idsetd, desc189, DialogModes.NO );
+
+// Colle le presse-papier dans le calque
+// =======================================================
+var idpast = charIDToTypeID( "past" );
+    var desc31 = new ActionDescriptor();
+    var idAntA = charIDToTypeID( "AntA" );
+    var idAnnt = charIDToTypeID( "Annt" );
+    var idAnno = charIDToTypeID( "Anno" );
+    desc31.putEnumerated( idAntA, idAnnt, idAnno );
+executeAction( idpast, desc31, DialogModes.NO );
+
+}
+
+//===========================================
+
+function blackWhite(){
+    var idMk = charIDToTypeID( 'Mk  ' );     
+    var desc972 = new ActionDescriptor();     
+    var idnull = charIDToTypeID( 'null' );         
+    var ref779 = new ActionReference();         
+    var idcontentLayer = stringIDToTypeID( 'contentLayer' );         
+    ref779.putClass( idcontentLayer );     
+    desc972.putReference( idnull, ref779 );     
+    var idUsng = charIDToTypeID( 'Usng' );         
+    var desc973 = new ActionDescriptor();         
+    var idType = charIDToTypeID( 'Type' );         
+    var idBanW = charIDToTypeID( 'BanW' );         
+    desc973.putClass( idType, idBanW );     
+    var idcontentLayer = stringIDToTypeID( 'contentLayer' );     
+    desc972.putObject( idUsng, idcontentLayer, desc973 ); 
+    executeAction( idMk, desc972, DialogModes.ALL ); 
+}
+
+function newSnapshot(){
+    var idMk = charIDToTypeID( 'Mk  ' );     
+    var desc590 = new ActionDescriptor();     
+    var idnull = charIDToTypeID( 'null' );         
+    var ref456 = new ActionReference();         
+    var idSnpS = charIDToTypeID( 'SnpS' );         
+    ref456.putClass( idSnpS );     
+    desc590.putReference( idnull, ref456 ); 
+    executeAction( idMk, desc590, DialogModes.ALL );
 }
