@@ -1,8 +1,8 @@
 /*Your styles*/
 
  body {
-    margin: 10px;
-}
+    margin: 0px;
+	background: #535353}
 
 
 #content {
@@ -17,7 +17,39 @@
     width: 100%;
 }
 
+p{
+  font-size: 10px;
+  float: right;
+  display: inline;
+  margin:0;
+}
 
+.topcoat-range{
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.toto{
+	border: 1px solid #B4B4B4;
+	border-radius: 2px;
+	width: 45px;
+	height: 45px;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	-webkit-box-shadow: 0px 0px;
+	box-shadow: 0px 0px;
+	display: inline;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.toto:hover{
+	border: 1px solid #ffffff;
+	cursor: pointer;
+	}
 
 
 /*
@@ -49,3 +81,11 @@ by the settings of the CC application
     color:inherit;
     font-size:inherit;
 }
+/*img {
+	border: 1px solid #909090;
+	border-radius: 2px;
+}
+
+img:hover {
+	border: 1px solid #d6d6d6;
+}*/

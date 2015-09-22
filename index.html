@@ -2,54 +2,100 @@
 <html>
 <head>
 <meta charset="utf-8">
-        
+        	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
 <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
 <link  id="hostStyle" rel="stylesheet" href="css/styles.css"/>
-
+	<!--<link rel="stylesheet" type="text/css" href="css/defaults.css">-->
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
 <title></title>
 </head>
-
+<!---->
 <body class="hostElt">
+    <!--<div><img src="icons/logo.png"</div>-->
+    	<div class="main">
+		<div class="accordion">
+			<div class="accordion-section">
+				<a class="accordion-section-title hostFontFamily" href="#accordion-1">presets</a>
+				<div id="accordion-1" class="accordion-section-content">
+                <button id="btn_darkRainbow" class="topcoat-button hostFontSize">Dark Rainbow</button>
+                <button id="btn_marshall" class="topcoat-button hostFontSize">Marshall</button>
+                <button id="btn_oldPola" class="topcoat-button hostFontSize">Old Pola</button>
+                <button id="btn_soLovely" class="topcoat-button hostFontSize">So Lovely</button>
+                <button id="btn_yellowishSky" class="topcoat-button hostFontSize">Yellowish Sky</button>
+                <button id="btn_pastel" class="topcoat-button hostFontSize">Pastel</button>
+                <button id="btn_blueRay" class="topcoat-button hostFontSize">Blue Ray</button>
+                <button id="btn_blueJeansDay" class="topcoat-button hostFontSize">Blue Jeans Day</button>
+                <button id="btn_greeny" class="topcoat-button hostFontSize">Greeny</button>
+                <button id="btn_dirtyBlackWhite" class="topcoat-button hostFontSize">Dirty Black & White</button>
+                <button id="btn_lightLeak" class="topcoat-button hostFontSize">Light Leak</button>
+                <button id="btn_randomAnalog" class="topcoat-button hostFontSize">Randomizer</button>
+                <button id="btn_undo" class="topcoat-button hostFontSize">Undo</button>
+				</div><!--end .accordion-section-content-->
+                </div><!--end .accordion-section-->
 
-    <div id="content">        
-        
-        <div>
-            <h1>Magical camera</h1>
-            <button id="btn_randomAnalog" class="topcoat-button--large hostFontSize">Randomizer</button>
-            <button id="btn_undo" class="topcoat-button--large hostFontSize">Undo</button>
-            <h1>Presets</h1>
-            <button id="btn_darkRainbow" class="topcoat-button--large hostFontSize">Dark Rainbow</button>
-            <button id="btn_marshall" class="topcoat-button--large hostFontSize">Marshall</button>
-            <button id="btn_oldPola" class="topcoat-button--large hostFontSize">Old Pola</button>
-            <button id="btn_soLovely" class="topcoat-button--large hostFontSize">So Lovely</button>
-            <button id="btn_yellowishSky" class="topcoat-button--large hostFontSize">Yellowish Sky</button>
-            <button id="btn_pastel" class="topcoat-button--large hostFontSize">Pastel</button>
-            <button id="btn_blueRay" class="topcoat-button--large hostFontSize">Blue Ray</button>
-            <button id="btn_blueJeansDay" class="topcoat-button--large hostFontSize">Blue Jeans Day</button>
-            <button id="btn_greeny" class="topcoat-button--large hostFontSize">Greeny</button>
-            <button id="btn_dirtyBlackWhite" class="topcoat-button--large hostFontSize">Dirty Black & White</button>
-            <button id="btn_lightLeak" class="topcoat-button--large hostFontSize">Light Leak</button>
-            <h1>Options</h1>
-            <button id="btn_changeFrame" class="topcoat-button--large hostFontSize">Change Frame</button>
-            <button id="btn_changeTexture" class="topcoat-button--large hostFontSize">Change Texture</button>
-            <button id="btn_changeVignetting" class="topcoat-button--large hostFontSize">Change Vignetting</button>
-            <button id="btn_changeFilter" class="topcoat-button--large hostFontSize">Change Filter</button>
-            <hr>
-            <button id="btn_blackWhite" class="topcoat-button--large hostFontSize">Black & White</button>
-            <button id="btn_newSnapshot" class="topcoat-button--large hostFontSize">New Snapshot</button>
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-2">frames</a>
+				<div id="accordion-2" class="accordion-section-content">
+                <label>Opacity</label><p>100%</p>
+                <input type="range" class="topcoat-range" min="0" max="100" value="100">
+                <button id="btn_changeFrame" class="topcoat-button hostFontSize">Change Frame</button>
+				</div><!--end .accordion-section-content-->
+                </div><!--end .accordion-section-->
+
+			<div class="accordion-section">
+				<a class="accordion-section-title" href="#accordion-3">textures</a>
+				<div id="accordion-3" class="accordion-section-content">
+                                    <label>Opacity</label><p>75%</p>
+                <input type="range" class="topcoat-range" min="0" max="100" value="75">
+                <button id="btn_changeTexture" class="topcoat-button hostFontSize">Change Texture</button>
+				</div><!--end .accordion-section-content-->
+                </div><!--end .accordion-section-->
             
-        </div>   
-        <p>Analog Photo FX 2.0
+            <div class="accordion-section">
+                <a class="accordion-section-title" href="#accordion-4">vignettes</a>
+                <div id="accordion-4" class="accordion-section-content">
+                <label>Opacity</label><p>75%</p>
+                <input type="range" class="topcoat-range" min="0" max="100" value="75">
+                <button id="btn_changeVignetting" class="topcoat-button hostFontSize">Change Vignetting</button>
+                </div><!--end .accordion-section-content-->
+                </div><!--end .accordion-section-->
+        
+            <div class="accordion-section">
+            <a class="accordion-section-title" href="#accordion-5">filters</a>
+            <div id="accordion-5" class="accordion-section-content">
+            <!--<button id="btn_changeFilter" class="topcoat-button hostFontSize">Change Filter</button>-->
+
+                <label>Opacity</label><p>75%</p>
+                <input type="range" class="topcoat-range" min="0" max="100" value="75">
+                <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/blue-red-yellow-gradient.png" width="45px" height="45px"></button>
+                    <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/blue_grain.png" width="45px" height="45px"></button>               
+                    <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/blue-red-yellow-gradient.png" width="45px" height="45px"></button>
+                    <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/Blue.png" width="45px" height="45px"></button>
+                    <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/blue_grain.png" width="45px" height="45px"></button>
+                    <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/blue-red-yellow-gradient.png" width="45px" height="45px"></button>
+                    <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/Blue.png"width="45px" height="45px"></button>
+                    <button id="btn_changeFilter" class="toto"><img src="assets/filters/thumbnails/blue_grain.png"width="45px" height="45px"></button>
+                    
+            </div><!--end .accordion-section-content-->
+			</div><!--end .accordion-section-->
+		  </div><!--end .accordion-->
+	</div>
+
+                   <button id="btn_blackWhite" class="topcoat-button hostFontSize">Black & White</button>
+            <button id="btn_newSnapshot" class="topcoat-button hostFontSize">New Snapshot</button>
+
+Analog Photo FX 2.0
         <br>
-        © 2011-2015 Sebastien Piconnier</p>
+        © 2011-2015 Sebastien Piconnier
     </div>
     
     <script src="js/libs/CSInterface.js"></script>
     <script src="js/libs/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="js/accordion.js"></script>
+
 
     <script src="js/themeManager.js"></script>
     <script src="js/main.js"></script>
-
-        
 </body>
 </html>

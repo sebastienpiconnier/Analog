@@ -15,7 +15,7 @@ app.preferences.typeUnits = TypeUnits.PIXELS
 // Affiche une alerte si aucun document n'est ouvert
 // =======================================================
 
-if ( app.documents.length <= 0 ) {alert("You must open a document! / Vous devez d'abord ouvrir un document!");}
+if ( app.documents.length <= 0 ) {alert("You must open a document!");}
     // =======================================================
 //  Recadrage du document en carré
 // =======================================================
